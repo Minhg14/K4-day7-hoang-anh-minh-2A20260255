@@ -78,7 +78,7 @@ Chạy `pytest tests/` để kiểm tra tiến độ.
 
 Mỗi nhóm chọn một chủ đề (domain) và chuẩn bị bộ tài liệu:
 
-**Bước 1 — Chọn chủ đề:** Chính sách đổi trả, bảo hành và quy định người bán / người mua trên nền tảng Thương mại Điện tử (Shopee, Tiki, Lazada).
+**Bước 1 — Chọn chủ đề:** Chính sách đổi trả, bảo hành và quy định người bán / người mua trên sàn Thương mại Điện tử Shopee.
 
 **Bước 2 — Thu thập 5-10 tài liệu:** Đã thu thập 6 tài liệu sạch lưu trong `data/ecommerce/`.
 
@@ -87,9 +87,9 @@ Mỗi nhóm chọn một chủ đề (domain) và chuẩn bị bộ tài liệu:
 | 1 | Chính sách trả hàng và hoàn tiền dành cho Người Mua Shopee | https://help.shopee.vn/portal/4/article/77245 | 2026-09-20 / not-stated | 2195 | `audience: buyer`, `category: returns-policy`, `language: vi` |
 | 2 | Quy định xử lý khiếu nại và trả hàng dành cho Người Bán Shopee | https://help.shopee.vn/portal/4/article/77245 | 2026-09-20 / not-stated | 2219 | `audience: seller`, `category: dispute-policy`, `language: vi` |
 | 3 | Danh sách hàng hóa cấm và hạn chế kinh doanh trên Shopee | https://help.shopee.vn/portal/4/article/77245 | 2026-09-20 / not-stated | 1996 | `audience: seller`, `category: prohibited-items`, `language: vi` |
-| 4 | Chính sách bảo hành sản phẩm chính hãng dành cho Người Mua Tiki | https://hotro.tiki.vn/s/article/chinh-sach-bao-hanh-tai-tiki | 2026-09-20 / not-stated | 2081 | `audience: buyer`, `category: warranty-policy`, `language: vi` |
-| 5 | Quy chuẩn đóng gói và bàn giao hàng hóa dành cho Người Bán Lazada | https://sellercenter.lazada.vn/seller/helpcenter/shipping-packaging | 2026-09-20 / not-stated | 2186 | `audience: seller`, `category: shipping-guidelines`, `language: vi` |
-| 6 | Chính sách bồi thường hư hỏng và thất lạc hàng hóa vận chuyển | https://help.shopee.vn/portal/4/article/77245 | 2026-09-20 / not-stated | 2185 | `audience: both`, `category: compensation-policy`, `language: vi` |
+| 4 | Chính sách bảo hành sản phẩm chính hãng dành cho Người Mua Shopee | https://help.shopee.vn/portal/4/article/77245 | 2026-09-20 / not-stated | 2250 | `audience: buyer`, `category: warranty-policy`, `language: vi` |
+| 5 | Quy chuẩn đóng gói và bàn giao hàng hóa dành cho Người Bán Shopee | https://help.shopee.vn/portal/4/article/77245 | 2026-09-20 / not-stated | 2310 | `audience: seller`, `category: shipping-guidelines`, `language: vi` |
+| 6 | Chính sách bồi thường hư hỏng và thất lạc hàng hóa vận chuyển Shopee | https://help.shopee.vn/portal/4/article/77245 | 2026-09-20 / not-stated | 2340 | `audience: both`, `category: compensation-policy`, `language: vi` |
 
 **Bước 3 — Thiết kế cấu trúc metadata (metadata schema):** Đầy đủ các trường `doc_id`, `title`, `source_url`, `retrieved_at`, `document_version`, `audience`, `category`, `language`.
 
@@ -151,9 +151,9 @@ Mỗi nhóm viết **đúng 5 câu hỏi đánh giá** kèm theo **câu trả l�
 |---|-------|-------------------------------|--------------------------|
 | 1 | Thời hạn tối đa để người mua gửi yêu cầu trả hàng và hoàn tiền đối với sản phẩm Shopee Mall là bao lâu? | 15 ngày kể từ ngày nhận hàng thành công. | `shopee-buyer-return-refund.md` (Mục 1) |
 | 2 | Người bán có bao nhiêu thời gian để phản hồi khi người mua yêu cầu trả hàng hoàn tiền? *(Có filter `audience: seller`)* | 48 giờ (2 ngày lịch) kể từ lúc hệ thống gửi thông báo. | `shopee-seller-dispute-resolution.md` (Mục 1) |
-| 3 | Thời gian xử lý bảo hành tiêu chuẩn đối với sản phẩm chính hãng tại Tiki là bao nhiêu ngày? | Từ 07 đến 14 ngày làm việc kể từ ngày trung tâm nhận được sản phẩm. | `tiki-buyer-warranty-policy.md` (Mục 3) |
-| 4 | Người bán Lazada phải sử dụng thùng carton mấy lớp đối với hàng hóa nặng trên 5 kg hoặc hàng dễ vỡ? *(Có filter `audience: seller`)* | Thùng carton tối thiểu 5 lớp (và quấn 2-3 lớp xốp khí dày tối thiểu 3 cm). | `lazada-seller-packaging-guidelines.md` (Mục 1) |
-| 5 | Mức bồi thường tổn thất tối đa đối với đơn hàng vận chuyển không mua bảo hiểm hàng hóa là bao nhiêu? | Tối đa bằng 04 lần cước phí vận chuyển hoặc tối đa 1.000.000 VNĐ đối với hàng thất lạc thông thường. | `ecommerce-shipping-damage-compensation.md` (Mục 3) |
+| 3 | Thời gian xử lý bảo hành tiêu chuẩn đối với sản phẩm chính hãng tại Shopee là bao nhiêu ngày? | Từ 07 đến 14 ngày làm việc kể từ ngày trung tâm nhận được sản phẩm. | `shopee-buyer-warranty-policy.md` (Mục 3) |
+| 4 | Người bán Shopee phải sử dụng thùng carton mấy lớp đối với hàng hóa nặng trên 5 kg hoặc hàng dễ vỡ? *(Có filter `audience: seller`)* | Thùng carton tối thiểu 5 lớp (và quấn 2-3 lớp xốp khí dày tối thiểu 3 cm). | `shopee-seller-packaging-guidelines.md` (Mục 1) |
+| 5 | Mức bồi thường tổn thất tối đa đối với đơn hàng vận chuyển Shopee không mua bảo hiểm hàng hóa là bao nhiêu? | Tối đa bằng 04 lần cước phí vận chuyển hoặc tối đa 1.000.000 VNĐ đối với hàng thất lạc thông thường. | `shopee-shipping-damage-compensation.md` (Mục 3) |
 
 > **Ghi kết quả vào:** Báo cáo — Phần 6 (Kết quả — Câu hỏi đánh giá & Câu trả lời chuẩn) [ĐÃ HOÀN THÀNH]
 
