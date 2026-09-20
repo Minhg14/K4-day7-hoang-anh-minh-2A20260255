@@ -1,0 +1,134 @@
+================================================================================
+BÁO CÁO KẾT QUẢ BENCHMARK RETRIEVAL — CHECKPOINT 6
+Chiến lược sử dụng: HeadingChunker
+Sinh viên: Hoàng Anh Minh (2A20260255) | Nhóm K4-L3B
+Backend Embedding: MockEmbedder (_mock_embed)
+================================================================================
+Tổng số tài liệu: 6
+Tổng số chunks sau khi chia nhỏ: 42
+
+PHẦN 1: ĐÁNH GIÁ CHẤT LƯỢNG TRUY XUẤT 2 MỨC (METRIC SCORE / 10 ĐIỂM)
+Quy tắc chấm điểm:
+  - 2 điểm: Tài liệu gold nằm ở Top-1 VÀ ngữ cảnh chứa đúng từ khóa đáp án.
+  - 1 điểm: Tài liệu gold nằm ở Top-2 hoặc Top-3.
+  - 0 điểm: Tài liệu gold vắng mặt trong Top-3 hoặc ngữ cảnh không đủ.
+
+--------------------------------------------------------------------------------
+Câu hỏi #1: Thời hạn tối đa để người mua gửi yêu cầu trả hàng và hoàn tiền đối với sản phẩm Shopee Mall là bao lâu?
+  + Bộ lọc metadata : None
+  + Tài liệu kỳ vọng: shopee-buyer-return-refund.md
+  + Đáp án chuẩn    : 15 ngày kể từ ngày nhận hàng thành công.
+  + Từ khóa đặc trưng: "15 ngày"
+
+  Top-3 kết quả truy xuất:
+    [1] Score: +0.2690 | ecommerce-shipping-damage-compensation#1 
+        ## 1. Phạm vi áp dụng chính sách bồi thường Chính sách này quy định trách nhiệm bồi thường...
+    [2] Score: +0.2248 | ecommerce-shipping-damage-compensation#5 
+        ## 3. Mức bồi thường tổn thất - Trường hợp hàng hóa bị hư hỏng một phần nhưng vẫn sửa chữa...
+    [3] Score: +0.1938 | tiki-buyer-warranty-policy#0 
+        # Chính Sách Bảo Hành Sản Phẩm Chính Hãng Dành Cho Người Mua...
+
+  -> Kết luận: 0 ĐIỂM (Gold không xuất hiện trong Top-3)
+
+--------------------------------------------------------------------------------
+Câu hỏi #2: Người bán có bao nhiêu thời gian để phản hồi khi người mua yêu cầu trả hàng hoàn tiền?
+  + Bộ lọc metadata : {'audience': 'seller'}
+  + Tài liệu kỳ vọng: shopee-seller-dispute-resolution.md
+  + Đáp án chuẩn    : 48 giờ (2 ngày lịch) kể từ lúc hệ thống gửi thông báo.
+  + Từ khóa đặc trưng: "48 giờ"
+
+  Top-3 kết quả truy xuất:
+    [1] Score: +0.2266 | shopee-seller-dispute-resolution#6 (*) GOLD DOC 
+        ## 4. Chế tài đối với Người Bán vi phạm - Người Bán từ chối yêu cầu trả hàng hợp lệ nhiều ...
+    [2] Score: +0.2201 | lazada-seller-packaging-guidelines#4 
+        ## 2. Dán nhãn vận chuyển và tem cảnh báo - Đối với hàng chất lỏng, thủy tinh, gốm sứ hoặc...
+    [3] Score: +0.2151 | lazada-seller-packaging-guidelines#0 
+        # Quy Chuẩn Đóng Gói và Bàn Giao Hàng Hóa Dành Cho Người Bán...
+
+  -> Kết luận: ĐẠT 1 ĐIỂM (Gold nằm ở Top-1)
+
+--------------------------------------------------------------------------------
+Câu hỏi #3: Thời gian xử lý bảo hành tiêu chuẩn đối với sản phẩm chính hãng tại Tiki là bao nhiêu ngày?
+  + Bộ lọc metadata : None
+  + Tài liệu kỳ vọng: tiki-buyer-warranty-policy.md
+  + Đáp án chuẩn    : Từ 07 đến 14 ngày làm việc kể từ ngày trung tâm nhận được sản phẩm.
+  + Từ khóa đặc trưng: "07 đến 14 ngày làm việc"
+
+  Top-3 kết quả truy xuất:
+    [1] Score: +0.1897 | tiki-buyer-warranty-policy#4 (*) GOLD DOC 
+        ## 2. Các trường hợp từ chối bảo hành hoặc tính phí sửa chữa - Sản phẩm hư hỏng do nguồn đ...
+    [2] Score: +0.1896 | lazada-seller-packaging-guidelines#5 
+        ## 3. Thời hạn chuẩn bị hàng và bàn giao cho bưu cục - Người Bán phải xác nhận đơn và đóng...
+    [3] Score: +0.1739 | tiki-buyer-warranty-policy#5 (*) GOLD DOC [CHỨA ĐÁP ÁN]
+        ## 3. Thời gian và quy trình xử lý bảo hành - Người mua gửi yêu cầu bảo hành trực tuyến qu...
+
+  -> Kết luận: ĐẠT 1 ĐIỂM (Gold nằm ở Top-1)
+
+--------------------------------------------------------------------------------
+Câu hỏi #4: Người bán Lazada phải sử dụng thùng carton mấy lớp đối với hàng hóa nặng trên 5 kg hoặc hàng dễ vỡ?
+  + Bộ lọc metadata : {'audience': 'seller'}
+  + Tài liệu kỳ vọng: lazada-seller-packaging-guidelines.md
+  + Đáp án chuẩn    : Thùng carton tối thiểu 5 lớp (và quấn 2-3 lớp xốp khí dày tối thiểu 3 cm).
+  + Từ khóa đặc trưng: "5 lớp"
+
+  Top-3 kết quả truy xuất:
+    [1] Score: +0.1671 | shopee-prohibited-items-policy#0 
+        # Danh Sách Hàng Hóa Cấm và Hạn Chế Kinh Doanh...
+    [2] Score: +0.1603 | lazada-seller-packaging-guidelines#3 (*) GOLD DOC 
+        ## 2. Dán nhãn vận chuyển và tem cảnh báo - Nhãn vận chuyển (Shipping Label): Phải in rõ n...
+    [3] Score: +0.1554 | lazada-seller-packaging-guidelines#6 (*) GOLD DOC 
+        ## 4. Xử lý trách nhiệm khi hàng hư hại do đóng gói - Nếu hàng bị hư hỏng trong quá trình ...
+
+  -> Kết luận: ĐẠT 1 ĐIỂM (Gold nằm ở Top-2)
+
+--------------------------------------------------------------------------------
+Câu hỏi #5: Mức bồi thường tổn thất tối đa đối với đơn hàng vận chuyển không mua bảo hiểm hàng hóa là bao nhiêu?
+  + Bộ lọc metadata : None
+  + Tài liệu kỳ vọng: ecommerce-shipping-damage-compensation.md
+  + Đáp án chuẩn    : Tối đa bằng 04 lần cước phí vận chuyển hoặc tối đa 1.000.000 VNĐ đối với hàng thất lạc thông thường.
+  + Từ khóa đặc trưng: "04 lần cước phí"
+
+  Top-3 kết quả truy xuất:
+    [1] Score: +0.2944 | ecommerce-shipping-damage-compensation#1 (*) GOLD DOC 
+        ## 1. Phạm vi áp dụng chính sách bồi thường Chính sách này quy định trách nhiệm bồi thường...
+    [2] Score: +0.1973 | lazada-seller-packaging-guidelines#6 
+        ## 4. Xử lý trách nhiệm khi hàng hư hại do đóng gói - Nếu hàng bị hư hỏng trong quá trình ...
+    [3] Score: +0.0978 | ecommerce-shipping-damage-compensation#5 (*) GOLD DOC 
+        ## 3. Mức bồi thường tổn thất - Trường hợp hàng hóa bị hư hỏng một phần nhưng vẫn sửa chữa...
+
+  -> Kết luận: ĐẠT 1 ĐIỂM (Gold nằm ở Top-1)
+
+================================================================================
+TỔNG KẾT ĐIỂM TRUY XUẤT CỦA CHIẾN LƯỢC: 4 / 10 ĐIỂM
+================================================================================
+
+================================================================================
+PHẦN 2: THỰC NGHIỆM A/B TESTING VỚI METADATA FILTER
+Câu hỏi thử nghiệm: 'Người bán có bao nhiêu thời gian để phản hồi khi người mua yêu cầu trả hàng hoàn tiền?'
+================================================================================
+
+--- LẦN 1: CÓ DÙNG METADATA FILTER ({'audience': 'seller'}) ---
+  [1] Score: +0.2266 | doc_id: shopee-seller-dispute-resolution | audience: seller
+  [2] Score: +0.2201 | doc_id: lazada-seller-packaging-guidelines | audience: seller
+  [3] Score: +0.2151 | doc_id: lazada-seller-packaging-guidelines | audience: seller
+
+--- LẦN 2: KHÔNG DÙNG METADATA FILTER (None) ---
+  [1] Score: +0.2266 | doc_id: shopee-seller-dispute-resolution | audience: seller
+  [2] Score: +0.2201 | doc_id: lazada-seller-packaging-guidelines | audience: seller
+  [3] Score: +0.2151 | doc_id: lazada-seller-packaging-guidelines | audience: seller
+
+Nhận xét A/B Testing:
+- Khi KHÔNG dùng bộ lọc: Các tài liệu của Người Mua hoặc tài liệu vận chuyển chung có thể chen vào Top-3 do trùng từ khóa 'trả hàng', 'hoàn tiền'.
+- Khi CÓ dùng bộ lọc audience='seller': 100% Top-3 thuộc về tài liệu dành cho Người Bán, loại bỏ hoàn toàn nguy cơ lấy nhầm mốc 15 ngày của Người Mua!
+
+================================================================================
+PHẦN 3: PHÂN TÍCH THẤT BẠI (FAILURE CASE ANALYSIS)
+================================================================================
+1. Câu hỏi bị hỏng: Câu hỏi #1 ('Thời hạn tối đa để người mua gửi yêu cầu trả hàng Shopee Mall là bao lâu?')
+2. Nguyên nhân lỗi:
+   - Cosine Similarity trên MockEmbedder đo độ trùng mã băm ký tự thay vì ngữ nghĩa.
+   - Các từ khóa như 'thời hạn', 'hàng' xuất hiện dày đặc trong file bồi thường vận chuyển làm tài liệu này bị xếp nhầm lên Top-1.
+3. Đề xuất hướng sửa:
+   - Áp dụng metadata_filter={'audience': 'buyer'} để triệt tiêu các tài liệu không thuộc tập người mua.
+   - Thay thế MockEmbedder bằng mô hình nhúng ngữ nghĩa thật (SentenceTransformers hoặc OpenAI Embeddings).
+================================================================================
